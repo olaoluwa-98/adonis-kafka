@@ -15,7 +15,8 @@ class Consumer {
 
     const kafka = new Kafka({
       clientId: this.config.clientId,
-      brokers: this.config.address
+      brokers: this.config.address,
+      sasl: this.config.sasl
     });
 
     this.consumer = kafka.consumer({ groupId: this.config.groupId });
