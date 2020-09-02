@@ -4,10 +4,11 @@ class Producer {
   constructor(Logger, config) {
     this.Logger = Logger;
     this.config = config;
-
+    
     const kafka = new Kafka({
       clientId: this.config.clientId,
       brokers: this.config.address,
+      sasl: this.config.sasl
     });
 
     this.producer = kafka.producer();
